@@ -1,0 +1,29 @@
+﻿@page
+@using System.Data.SqlClient;
+
+@{
+
+    try
+    {
+        string CL_ID = Request.Query["CL_ID"];
+
+        string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=dbImoHabit;Integrated Security=True;Encrypt=False";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            String sql = "DELETE FROM Cliente WHERE CL_ID=@CL_ID";
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@CL_ID", CL_ID);
+
+                command.ExecuteNonQuery();
+            }
+
+        }
+    }
+    catch (Exception ex)
+    {
+    }
+    Response.Redirect("/Clientes/Index");
+}

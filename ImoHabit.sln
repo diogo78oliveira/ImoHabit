@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImoHabit", "ImoHabit\ImoHabit.csproj", "{F4B02D8E-331F-4B31-9D28-DD4BC15B134E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4B02D8E-331F-4B31-9D28-DD4BC15B134E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4B02D8E-331F-4B31-9D28-DD4BC15B134E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4B02D8E-331F-4B31-9D28-DD4BC15B134E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4B02D8E-331F-4B31-9D28-DD4BC15B134E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF0FA98F-7DE9-419E-840A-9326A7CCD65B}
+	EndGlobalSection
+EndGlobal

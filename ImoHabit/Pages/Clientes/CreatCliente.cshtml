@@ -1,0 +1,85 @@
+﻿@page
+@model ImoHabit.Pages.Clientes.CreatClienteModel
+@{
+}
+
+<br>
+<h2> Novo Cliente </h2>
+
+@if (Model.MensagemErro.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissable fade show' role='alert'>
+        <strong>@Model.MensagemErro></strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+<form method="POST">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">ID</label>
+        <div class="col-sm-6">
+            <input type="number" class="form-control" name="CL_ID" value="@Model.clienteInfo.CL_ID">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Tipo de Contacto</label>
+        <div class="col-sm-6">
+            <input type="number" class="form-control" name="TC_ID" value="@Model.clienteInfo.TC_ID">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Código Postal</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="CP" value="@Model.clienteInfo.CP">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Nome</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Nome" value="@Model.clienteInfo.Nome">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Morada</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Morada" value="@Model.clienteInfo.Morada">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Contacto</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Contacto" value="@Model.clienteInfo.Contacto">
+        </div>
+    </div>
+
+     <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">DataNascimento</label>
+        <div class="col-sm-6">
+            <input type="date" class="form-control" name="DataNasc" value="@Model.clienteInfo.DataNasc">
+        </div>
+    </div>
+
+    @if (Model.MensagemSucesso.Length > 0)
+    {
+        <div class="row mb-3">
+           <div class="col-sm-9">
+                <div class='alert alert-warning alert-dismissable fade show' role='alert'>
+            <strong>@Model.MensagemSucesso></strong>
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submeter</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/" role="button">Cancelar</a>
+        </div>
+    </div>
+</form>
