@@ -1,0 +1,32 @@
+﻿@page
+@model ImoHabit.Pages.Vendedores.Contacto
+@{
+}
+
+<br>
+<h2>Contactos</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>CT_ID</th>
+            <th>IDVendedor</th>
+            <th>TC_ID</th>
+            <th>ValorContacto</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ListContactos) 
+          {
+          <tr>
+            <td>@item.CT_ID</td>
+            <td>@item.V_ID</td>
+            <td>@item.TC_ID</td>
+            <td>@item.ValorContacto</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
+

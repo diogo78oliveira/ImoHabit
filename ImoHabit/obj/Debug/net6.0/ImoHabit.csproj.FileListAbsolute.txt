@@ -36,3 +36,4 @@ C:\Users\diogo\Documents\GitHub\ImoHabit\ImoHabit\obj\Debug\net6.0\refint\ImoHab
 C:\Users\diogo\Documents\GitHub\ImoHabit\ImoHabit\obj\Debug\net6.0\ImoHabit.pdb
 C:\Users\diogo\Documents\GitHub\ImoHabit\ImoHabit\obj\Debug\net6.0\ImoHabit.genruntimeconfig.cache
 C:\Users\diogo\Documents\GitHub\ImoHabit\ImoHabit\obj\Debug\net6.0\ref\ImoHabit.dll
+C:\Users\diogo\Documents\GitHub\ImoHabit\ImoHabit\obj\Debug\net6.0\ImoHabit.sourcelink.json

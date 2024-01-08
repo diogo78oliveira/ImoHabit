@@ -18,7 +18,11 @@
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Tipo de Contacto</label>
         <div class="col-sm-6">
-            <input type="number" class="form-control" name="TC_ID" value="@Model.clienteInfo.TC_ID">
+            <select class="form-select" name="TC_ID">
+                <option value="1" selected="@Model.clienteInfo.TC_ID == " Telemóvel"">Telemóvel</option>
+                <option value="2" selected="@Model.clienteInfo.TC_ID == " Email"">Email</option>
+                <option value="3" selected="@Model.clienteInfo.TC_ID == " Telefone Fixo"">Telefone Fixo</option>
+            </select>
         </div>
     </div>
 

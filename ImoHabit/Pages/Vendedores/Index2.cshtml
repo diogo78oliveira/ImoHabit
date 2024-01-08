@@ -1,0 +1,36 @@
+﻿@page
+@model ImoHabit.Pages.Vendedores.IndexModel2
+@{
+}
+
+<br>
+<h2> Lista de Vendedores </h2>
+<a class='btn btn-primary btn-sm' href='/Vendedores/CreateVendedor'>Novo Vendedor</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>V_ID</th>
+            <th>Nome</th>
+            <th>DataNascimento</th>
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ListVendedores) 
+        {
+            <tr>
+                <td>@item.V_ID</td>
+                <td>@item.Nome</td>
+                <td>@item.DataNasc</td>
+                <td>
+                    <a class="btn btn-danger btn-sm" href="/Vendedores/DeleteVendedor?V_ID=@item.V_ID">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+

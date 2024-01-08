@@ -1,0 +1,36 @@
+﻿@page
+@using System.Data.SqlClient
+
+@{
+    try
+    {
+        string V_ID = Request.Query["V_ID"];
+
+        string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=dbImoHabit;Integrated Security=True;Encrypt=False";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+
+            
+            string deleteContactsQuery = "DELETE FROM Contacto WHERE V_ID=@V_ID";
+            using (SqlCommand command = new SqlCommand(deleteContactsQuery, connection))
+            {
+                command.Parameters.AddWithValue("@V_ID", V_ID);
+                command.ExecuteNonQuery();
+            }
+
+            
+            string deleteVendedorQuery = "DELETE FROM Vendedor WHERE V_ID=@V_ID";
+            using (SqlCommand command = new SqlCommand(deleteVendedorQuery, connection))
+            {
+                command.Parameters.AddWithValue("@V_ID", V_ID);
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+    }
+    Response.Redirect("/Vendedores/Index2");
+}

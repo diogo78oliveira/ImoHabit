@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 using System.Data.SqlClient;
 
 namespace ImoHabit.Pages.Clientes
@@ -9,40 +10,42 @@ namespace ImoHabit.Pages.Clientes
         public ClienteInfo clienteInfo = new ClienteInfo();
         public string MensagemErro = "";
         public string MensagemSucesso = "";
+
+        private static readonly Random random = new Random();
+
         public void OnGet()
         {
         }
 
-        public void OnPost() 
+        public void OnPost()
         {
-            clienteInfo.CL_ID = Request.Form["CL_ID"];
-            clienteInfo.TC_ID = Request.Form["TC_ID"];
-            clienteInfo.CP = Request.Form["CP"];
-            clienteInfo.Nome = Request.Form["Nome"];
-            clienteInfo.Morada = Request.Form["Morada"];
-            clienteInfo.Contacto = Request.Form["Contacto"];
-            clienteInfo.DataNasc = Request.Form["DataNasc"];
-
-            if (clienteInfo.CL_ID.Length == 0 || clienteInfo.TC_ID.Length == 0 
-                || clienteInfo.CP.Length == 0 || clienteInfo.Nome.Length == 0 
-                || clienteInfo.Morada.Length == 0 || clienteInfo.Contacto.Length == 0 || clienteInfo.DataNasc.Length == 0
-                )
-            {
-                MensagemErro = "Todos os campos têm de ser preenchidos";
-                return;
-            }
-
-            //guardar cliente na base de dados
+            string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=dbImoHabit;Integrated Security=True;Encrypt=False";
 
             try
             {
-                String connectionString = "Data Source=.\\sqlexpress;Initial Catalog=dbImoHabit;Integrated Security=True;Encrypt=False";
+                clienteInfo.CL_ID = GenerateUniqueID(connectionString);
+
+                clienteInfo.TC_ID = Request.Form["TC_ID"];
+                clienteInfo.CP = Request.Form["CP"];
+                clienteInfo.Nome = Request.Form["Nome"];
+                clienteInfo.Morada = Request.Form["Morada"];
+                clienteInfo.Contacto = Request.Form["Contacto"];
+                clienteInfo.DataNasc = Request.Form["DataNasc"];
+
+                if (clienteInfo.TC_ID.Length == 0
+                    || clienteInfo.CP.Length == 0 || clienteInfo.Nome.Length == 0
+                    || clienteInfo.Morada.Length == 0 || clienteInfo.Contacto.Length == 0 || clienteInfo.DataNasc.Length == 0)
+                {
+                    MensagemErro = "Todos os campos têm de ser preenchidos";
+                    return;
+                }
+
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sql = "INSERT INTO Cliente" +
-                                 "(CL_ID, TC_ID, CP, Nome, Morada, Contacto, DataNasc) VALUES " +
-                                 "(@CL_ID, @TC_ID, @CP, @Nome, @Morada, @Contacto, @DataNasc);";
+                    string sql = "INSERT INTO Cliente" +
+                                "(CL_ID, TC_ID, CP, Nome, Morada, Contacto, DataNasc) VALUES " +
+                                "(@CL_ID, @TC_ID, @CP, @Nome, @Morada, @Contacto, @DataNasc);";
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
@@ -57,19 +60,55 @@ namespace ImoHabit.Pages.Clientes
                         command.ExecuteNonQuery();
                     }
                 }
+
+                clienteInfo.CL_ID = ""; clienteInfo.TC_ID = ""; clienteInfo.CP = ""; clienteInfo.Nome = "";
+                clienteInfo.Morada = ""; clienteInfo.Contacto = ""; clienteInfo.DataNasc = "";
+                MensagemSucesso = "Novo Cliente Adicionado";
+
+                Response.Redirect("/Clientes/Index");
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
-                MensagemErro= ex.Message;
+                MensagemErro = ex.Message;
                 return;
             }
+        }
 
-            clienteInfo.CL_ID = ""; clienteInfo.TC_ID = ""; clienteInfo.CP = ""; clienteInfo.Nome = "";
-            clienteInfo.Morada = ""; clienteInfo.Contacto = ""; clienteInfo.DataNasc = "";
-            MensagemSucesso = "Novo Cliente Adicionado";
+        private string GenerateUniqueID(string connectionString)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT CL_ID FROM Cliente";
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader();
 
-            Response.Redirect("/Clientes/Index");
+                var existingIDs = new HashSet<string>();
 
+                while (reader.Read())
+                {
+                    existingIDs.Add(reader["CL_ID"].ToString());
+                }
+
+                reader.Close();
+
+                string newID = GenerateRandomNumber(10000, 99999).ToString();
+
+                while (existingIDs.Contains(newID))
+                {
+                    newID = GenerateRandomNumber(10000, 99999).ToString();
+                }
+
+                return newID;
+            }
+        }
+
+        private int GenerateRandomNumber(int min, int max)
+        {
+            lock (random)
+            {
+                return random.Next(min, max);
+            }
         }
     }
 }

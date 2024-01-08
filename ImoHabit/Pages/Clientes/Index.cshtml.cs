@@ -1,3 +1,4 @@
+using ImoHabit.Pages.Vendedores;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
@@ -31,8 +32,7 @@ namespace ImoHabit.Pages.Clientes
                                 clienteInfo.Nome = reader.GetString(3);
                                 clienteInfo.Morada = reader.GetString(4);
                                 clienteInfo.Contacto = reader.GetString(5);
-                                clienteInfo.DataNasc = reader.GetDateTime(6).ToString("dd-MM-yyyy");
-
+                                clienteInfo.DataNasc = reader.GetDateTime(6).ToString("dd-MM-yyyy");                 
 
                                 ListClientes.Add(clienteInfo);
 
