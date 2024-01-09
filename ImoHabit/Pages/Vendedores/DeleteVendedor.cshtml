@@ -6,13 +6,13 @@
     {
         string V_ID = Request.Query["V_ID"];
 
-        string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=dbImoHabit;Integrated Security=True;Encrypt=False";
+        string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=ImoHabit;Integrated Security=True;Encrypt=False";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             connection.Open();
 
-            
+
             string deleteContactsQuery = "DELETE FROM Contacto WHERE V_ID=@V_ID";
             using (SqlCommand command = new SqlCommand(deleteContactsQuery, connection))
             {
@@ -20,7 +20,7 @@
                 command.ExecuteNonQuery();
             }
 
-            
+
             string deleteVendedorQuery = "DELETE FROM Vendedor WHERE V_ID=@V_ID";
             using (SqlCommand command = new SqlCommand(deleteVendedorQuery, connection))
             {

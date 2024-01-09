@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ImoHabit")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b873023ccc3c0f0dd8cf0f80775ac1d7c3f6b736")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a566a514ca77e2a9508b0ab0e64dc0276ae5c49")]
 [assembly: System.Reflection.AssemblyProductAttribute("ImoHabit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ImoHabit")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

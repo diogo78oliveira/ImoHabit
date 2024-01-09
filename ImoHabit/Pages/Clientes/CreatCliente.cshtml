@@ -9,11 +9,11 @@
 @if (Model.MensagemErro.Length > 0)
 {
     <div class='alert alert-warning alert-dismissable fade show' role='alert'>
-        <strong>@Model.MensagemErro></strong>
+        <strong>@Model.MensagemErro</strong>
         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
     </div>
 }
-<form method="POST">
+<form method="POST" class="cliente-form">
 
 
     <div class="row mb-3">
@@ -54,7 +54,7 @@
         </div>
     </div>
 
-     <div class="row mb-3">
+    <div class="row mb-3">
         <label class="col-sm-3 col-form-label">DataNascimento</label>
         <div class="col-sm-6">
             <input type="date" class="form-control" name="DataNasc" value="@Model.clienteInfo.DataNasc">
@@ -64,10 +64,10 @@
     @if (Model.MensagemSucesso.Length > 0)
     {
         <div class="row mb-3">
-           <div class="col-sm-9">
+            <div class="col-sm-9">
                 <div class='alert alert-warning alert-dismissable fade show' role='alert'>
-            <strong>@Model.MensagemSucesso></strong>
-            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                    <strong>@Model.MensagemSucesso</strong>
+                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                 </div>
             </div>
         </div>
@@ -82,3 +82,27 @@
         </div>
     </div>
 </form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.querySelector('.cliente-form');
+
+        form.addEventListener('submit', function (event) {
+            var tipoContacto = document.querySelector('[name="TC_ID"]').value;
+            var contactoInput = document.querySelector('[name="Contacto"]');
+
+            if ((tipoContacto === '1' || tipoContacto === '3') && !/^\d{9}$/.test(contactoInput.value)) {
+                alert('Insira 9 dígitos.');
+                event.preventDefault();
+                return;
+            }
+
+            if (tipoContacto === '2' && !contactoInput.value.includes('@@')) {
+                alert('Insira um Email Inválidol.');
+                event.preventDefault();
+                return;
+            }
+        });
+    });
+</script>
+
