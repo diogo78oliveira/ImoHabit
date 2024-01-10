@@ -22,7 +22,7 @@ namespace ImoHabit.Pages.Vendedores
 
         public void OnPost()
         {
-            string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=ImoHabit;Integrated Security=True;Encrypt=False";
+            string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=dbImoHabit;Integrated Security=True;Encrypt=False";
 
             try
             {

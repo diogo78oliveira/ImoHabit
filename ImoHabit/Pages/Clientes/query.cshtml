@@ -1,0 +1,47 @@
+﻿@page
+@model ImoHabit.Pages.Clientes.QueryModel
+@{
+}
+
+<br>
+<h2> Clientes que fizeram propostas acima de 175.000 </h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>CL_ID</th>
+            <th>TC_ID</th>
+            <th>CP</th>
+            <th>Localidade</th>
+            <th>Nome</th>
+            <th>Morada</th>
+            <th>Contacto</th>
+            <th>DataNascimento</th>
+            <td>ValorOferta</td>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ListQuerys)
+        {
+            <tr>
+                <td>@item.CL_ID</td>
+                <td>@item.TC_ID</td>
+                <td>@item.CP</td>
+                <td>@item.Localidade</td>
+                <td>@item.Nome</td>
+                <td>@item.Morada</td>
+                <td>@item.Contacto</td>
+                <td>@item.DataNasc</td>
+                <td>@item.ValorOferta</td>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+

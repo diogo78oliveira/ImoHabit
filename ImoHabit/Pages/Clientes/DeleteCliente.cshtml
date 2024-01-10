@@ -7,7 +7,7 @@
     {
         string CL_ID = Request.Query["CL_ID"];
 
-        string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=ImoHabit;Integrated Security=True;Encrypt=False";
+        string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=dbImoHabit;Integrated Security=True;Encrypt=False";
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             connection.Open();

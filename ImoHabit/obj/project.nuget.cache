@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4SOXrG5wKkAl0eBGZsfXtoVL+fOcLw2GPlla1/vyI2YqPMIlF2Gx3E/TGGAWm2IZ7SootheGek2hbbwgr6gO+Q==",
+  "dgSpecHash": "wKr+Eu3ISTMzZDH08Oa2U7cBt+p0BvaONTeilZzdFnWwXDpZR7ThmungngYVeX+1RNaDWsAAuUwWXryHIjIzmg==",
   "success": true,
   "projectFilePath": "C:\\Users\\diogo\\Documents\\GitHub\\ImoHabit\\ImoHabit\\ImoHabit.csproj",
   "expectedPackageFiles": [
@@ -12,7 +12,11 @@
     "C:\\Users\\diogo\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\diogo\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
     "C:\\Users\\diogo\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
-    "C:\\Users\\diogo\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+    "C:\\Users\\diogo\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
+    "C:\\Users\\diogo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\diogo\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\diogo\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\diogo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.25\\microsoft.netcore.app.host.win-x64.6.0.25.nupkg.sha512"
   ],
   "logs": []
 }

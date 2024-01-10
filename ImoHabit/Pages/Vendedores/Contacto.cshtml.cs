@@ -13,7 +13,7 @@ namespace ImoHabit.Pages.Vendedores
         {
             try
             {
-                String connectionString = "Data Source=.\\sqlexpress;Initial Catalog=ImoHabit;Integrated Security=True;Encrypt=False";
+                String connectionString = "Data Source=.\\sqlexpress;Initial Catalog=dbImoHabit;Integrated Security=True;Encrypt=False";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
