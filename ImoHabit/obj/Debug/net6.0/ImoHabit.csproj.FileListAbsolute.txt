@@ -37,3 +37,5 @@ C:\Users\diogo\Documents\GitHub\ImoHabit\ImoHabit\obj\Debug\net6.0\ImoHabit.pdb
 C:\Users\diogo\Documents\GitHub\ImoHabit\ImoHabit\obj\Debug\net6.0\ImoHabit.genruntimeconfig.cache
 C:\Users\diogo\Documents\GitHub\ImoHabit\ImoHabit\obj\Debug\net6.0\ref\ImoHabit.dll
 C:\Users\diogo\Documents\GitHub\ImoHabit\ImoHabit\obj\Debug\net6.0\ImoHabit.sourcelink.json
+C:\Users\diogo\Documents\GitHub\ImoHabit\ImoHabit\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\diogo\Documents\GitHub\ImoHabit\ImoHabit\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll

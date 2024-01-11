@@ -1,0 +1,51 @@
+﻿@page
+@using System.Data.SqlClient
+
+<style>
+    .resultado {
+        margin: 5px 0;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .localidade {
+        font-size: 22px;
+        font-weight: bold;
+    }
+</style>
+
+@{
+    string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=ImoHabit;Integrated Security=True;Encrypt=False";
+
+    List<string> resultadosList = new List<string>();
+
+    using (var connection = new SqlConnection(connectionString))
+    {
+        var parametros = new SqlParameter("@CP", "4750-276");
+
+        using (var command = new SqlCommand("ListarLocalidades", connection))
+        {
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.Add(parametros);
+
+            connection.Open();
+
+            var resultados = command.ExecuteReader();
+
+            while (resultados.Read())
+            {
+                var valorColuna = resultados["Localidade"];
+                resultadosList.Add(valorColuna.ToString());
+            }
+        }
+    }
+
+    <div class="resultado">
+        @foreach (var resultado in resultadosList)
+        {
+            <p class="localidade">@resultado</p>
+        }
+    </div>
+}
