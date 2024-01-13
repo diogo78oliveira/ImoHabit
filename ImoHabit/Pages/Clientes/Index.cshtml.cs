@@ -9,6 +9,9 @@ namespace ImoHabit.Pages.Clientes
     public class IndexModel : PageModel
     {
         public List<ClienteInfo> ListClientes = new List<ClienteInfo>();
+
+        [BindProperty(SupportsGet = true)]
+        public string SearchName { get; set; }
         public void OnGet()
         {
             try
@@ -19,6 +22,12 @@ namespace ImoHabit.Pages.Clientes
                 {
                     connection.Open();
                     String sql = "SELECT * FROM Cliente";
+
+                    if (!string.IsNullOrEmpty(SearchName))
+                    {
+                        sql += $" WHERE Nome LIKE '%{SearchName}%'";
+                    }
+
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
